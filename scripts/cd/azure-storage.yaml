@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-storage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-storage
+  template:
+    metadata:
+      labels:
+        app: azure-storage
+    spec:
+      containers:
+        - name: azure-storage
+          image: $CONTAINER_REGISTRY/azure-storage:$VERSION
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PORT
+              value: "80"
+            - name: RABBIT
+              value: amqp://test:test@rabbit:5672
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-storage
+spec:
+  selector:
+    app: azure-storage
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4001

@@ -2,7 +2,6 @@ const express = require("express");
 const http = require("http");
 const mongodb = require("mongodb");
 
-const PORT = process.env.PORT;
 const VIDEO_STORAGE_HOST = process.env.VIDEO_STORAGE_HOST;
 const VIDEO_STORAGE_PORT = parseInt(process.env.VIDEO_STORAGE_PORT);
 const DBHOST = process.env.DBHOST;
@@ -12,7 +11,7 @@ const app = express();
 
 if (!process.env.PORT) {
   throw new Error(
-    "Please specify the port number for the HTTP server with the environment variable PORT.",
+    "Please specify the port number for the HTTP server with the environment variable PORT."
   );
 }
 
@@ -41,7 +40,7 @@ async function main() {
       (forwardResponse) => {
         res.writeHead(forwardResponse.statusCode, forwardResponse.headers);
         forwardResponse.pipe(res);
-      },
+      }
     );
 
     req.pipe(forwardRequest);

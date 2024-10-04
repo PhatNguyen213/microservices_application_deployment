@@ -11,11 +11,11 @@ const STORAGE_ACCESS_KEY = process.env.STORAGE_ACCESS_KEY;
 function createBlobService() {
   const sharedKeyCredential = new StorageSharedKeyCredential(
     STORAGE_ACCOUNT_NAME,
-    STORAGE_ACCESS_KEY,
+    STORAGE_ACCESS_KEY
   );
   const blobService = new BlobServiceClient(
     `https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
-    sharedKeyCredential,
+    sharedKeyCredential
   );
   return blobService;
 }
@@ -36,6 +36,8 @@ app.get("/video", async (req, res) => {
     "content-length": properties.contentLength,
     "content-type": "video/mp4",
   });
+
+  console.log("Test");
 
   const response = await blobClient.download();
   response.readableStreamBody.pipe(res);

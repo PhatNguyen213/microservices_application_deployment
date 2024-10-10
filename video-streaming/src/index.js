@@ -2,10 +2,10 @@ const express = require("express");
 const http = require("http");
 const mongodb = require("mongodb");
 
-const VIDEO_STORAGE_HOST = process.env.VIDEO_STORAGE_HOST;
-const VIDEO_STORAGE_PORT = parseInt(process.env.VIDEO_STORAGE_PORT);
-const DBHOST = process.env.DBHOST;
-const DBNAME = process.env.DBNAME;
+const VIDEO_STORAGE_HOST = "video-storage";
+const VIDEO_STORAGE_PORT = 80;
+const DBHOST = "mongodb://db:27017";
+const DBNAME = "video-streaming";
 
 const app = express();
 

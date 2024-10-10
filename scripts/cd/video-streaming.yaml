@@ -18,13 +18,13 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: VIDEO_STORAGE_HOST
-              value: "video-storage"
+              value: video-storage
             - name: VIDEO_STORAGE_PORT
               value: "80"
             - name: DBHOST
-              value: "mongodb://db:27017"
+              value: mongodb://db:27017
             - name: DBNAME
-              value: "video-streaming"
+              value: video-streaming
             - name: PORT
               value: "4000"
             - name: RABBIT

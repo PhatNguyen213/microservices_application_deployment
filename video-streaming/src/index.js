@@ -4,7 +4,7 @@ const mongodb = require("mongodb");
 
 const VIDEO_STORAGE_HOST = "video-storage";
 const VIDEO_STORAGE_PORT = 80;
-const DBHOST = "mongodb://db:27017";
+const DBHOST = "mongodb://mongodb:27017";
 const DBNAME = "video-streaming";
 
 const app = express();

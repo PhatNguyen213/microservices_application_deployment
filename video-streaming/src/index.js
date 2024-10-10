@@ -50,6 +50,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("Microservice failed to start");
+  console.error("Microservice failed to start.");
   console.error((err && err.stack) || err);
 });

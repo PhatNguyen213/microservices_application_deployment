@@ -2,7 +2,7 @@ const express = require("express");
 const http = require("http");
 const mongodb = require("mongodb");
 
-const VIDEO_STORAGE_HOST = "video-storage";
+const VIDEO_STORAGE_HOST = "azure-storage";
 const VIDEO_STORAGE_PORT = 80;
 const DBHOST = "mongodb://mongodb:27017";
 const DBNAME = "video-streaming";

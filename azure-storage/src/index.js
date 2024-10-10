@@ -25,7 +25,7 @@ const app = express();
 app.get("/video", async (req, res) => {
   const videoPath = req.query.path;
 
-  const containerName = "videos";
+  const containerName = "phcontainer";
   const blobService = createBlobService();
   const containerClient = blobService.getContainerClient(containerName);
   const blobClient = containerClient.getBlobClient(videoPath);

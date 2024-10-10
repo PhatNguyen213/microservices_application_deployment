@@ -23,12 +23,13 @@ async function main() {
   const videosCollection = db.collection("videos");
 
   app.get("/video", async (req, res) => {
-    const videoId = new mongodb.ObjectId(req.query.id);
-    const videoRecord = await videosCollection.findOne({ _id: videoId });
-    if (!videoRecord) {
-      res.sendStatus(404);
-      return;
-    }
+    const videoRecord = { videoPath: "SampleVideo_1280x720_1mb.mp4" };
+    // const videoId = new mongodb.ObjectId(req.query.id);
+    // const videoRecord = await videosCollection.findOne({ _id: videoId });
+    // if (!videoRecord) {
+    //   res.sendStatus(404);
+    //   return;
+    // }
     const forwardRequest = http.request(
       {
         host: VIDEO_STORAGE_HOST,
